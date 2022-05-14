@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "AppleSDGothicNeo";
+  font-weight: 100;
+  src: url(../fonts/AppleSDGothicNeoM.woff) format("woff");
+  src: url(../fonts/AppleSDGothicNeoM.ttf) format("truetype");
+}
+@font-face {
+  font-family: "AppleSDGothicNeo";
+  font-weight: bold;
+  src: url(../fonts/AppleSDGothicNeoB.woff) format("woff");
+  src: url(../fonts/AppleSDGothicNeoB.ttf) format("truetype");
+}
+
+* {
+  font-family: AppleSDGothicNeo !important;
+}
