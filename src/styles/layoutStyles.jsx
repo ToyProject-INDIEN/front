@@ -215,3 +215,35 @@ export const ScrollTopButton = styled.button`
       transition: opacity 500ms, visibility 500ms;
     `};
 `;
+
+export const Body = styled.article`
+  width: 100%;
+  padding: 0 20%;
+
+  ${(props) =>
+    props.pt &&
+    css`
+      padding-top: 15px;
+    `}
+  ${(props) =>
+    props.pb &&
+    css`
+      padding-bottom: 15px;
+    `}
+        ${(props) =>
+    props.ptb &&
+    css`
+      padding-top: 15px;
+      padding-bottom: 15px;
+    `}
+  ${(props) =>
+    props.pn &&
+    css`
+      padding-right: 0px;
+      padding-left: 0px;
+    `}
+
+  ${smLayout} {
+    padding: 0;
+  }
+`;
