@@ -26,8 +26,8 @@ const Home = () => {
   const code = queryString.parse(window.location.search).code;
   console.log(code);
   
-  const requestToken = (_code) => {
-    
+  const sendAllowCode = (_code) => {
+
     sendData('login/ouath', {
         'grant_type': 'authorization_code',
         'client_id': key,
@@ -37,7 +37,7 @@ const Home = () => {
     console.log('실행');
   }
   if(code){
-    requestToken(code);
+    sendAllowCode(code);
   }
 
   return (
