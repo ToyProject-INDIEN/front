@@ -5,6 +5,7 @@ import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const Home = lazy(() => import("./pages/Home"));
+const Login = lazy(() => import("./pages/Login"));
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} exact />
           <Route path="/home" element={<Home />} exact />
+          <Route path="/login" element={<Login />} exact />
         </Routes>
       </Suspense>
     </Router>
