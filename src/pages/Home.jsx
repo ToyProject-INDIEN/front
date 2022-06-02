@@ -16,10 +16,6 @@ const Home = () => {
     setValue(e.target.value);
   };
 
-  const key = '918f9822b4091962f4efc82602dcdc38';
-  const redirect = 'http://127.0.0.1:3000/login'
-  const url = `https://kauth.kakao.com/oauth/authorize?response_type=code&state=login&client_id=${key}&redirect_uri=${redirect}`;
-
   return (
     <Layout hearderTitle="" headerLOption="logo" headerROption="search">
       <Body>
@@ -50,7 +46,7 @@ const Home = () => {
         />
         <Spacing />
 
-        <CustomButton ><a href={url} target='blank'>로그인</a></CustomButton>
+        <CustomButton >로그인</CustomButton>
         <CustomButton fullWidth>로그인</CustomButton>
         <CustomButton fullWidth outlined>
           로그인

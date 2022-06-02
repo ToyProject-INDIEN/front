@@ -8,8 +8,8 @@ import { Body } from "../styles/layoutStyles";
 
 import { Spacing } from "../styles/commonStyles";
 
-import axios from 'axios';
 import queryString from 'query-string';
+import { sendData } from '../constants/api_index';
 
 const Home = () => {
   const [value, setValue] = useState("");
@@ -18,6 +18,7 @@ const Home = () => {
     setValue(e.target.value);
   };
 
+  // 카카오 로그인 관련
   const key = '918f9822b4091962f4efc82602dcdc38';
   const redirect = 'http://127.0.0.1:3000/login'
   const url = `https://kauth.kakao.com/oauth/authorize?response_type=code&state=login&client_id=${key}&redirect_uri=${redirect}`;
@@ -26,18 +27,14 @@ const Home = () => {
   console.log(code);
   
   const requestToken = (_code) => {
-    axios.post({
-      headers: {'Content-type': 'application/x-www-form-urlencoded;charset=utf-8'},
-      url: 'https://kauth.kakao.com/oauth/token',
-      params: {
+    
+    sendData('login/ouath', {
         'grant_type': 'authorization_code',
         'client_id': key,
         'redirect_uri': redirect,
         'code': _code,
-      }
-    }).then(function(res){
-      console.log(res);
     });
+    console.log('실행');
   }
   if(code){
     requestToken(code);
@@ -53,7 +50,26 @@ const Home = () => {
           type="password"
         />
         <Spacing />
-        <p>로그인 페이지</p>
+
+        <CustomInput
+          value="아이디"
+          variant="outlined"
+          placeholder="outlined"
+          type="text"
+        />
+        <Spacing />
+
+        <CustomInput
+          value={value}
+          onChange={handleChangeInput}
+          variant="standard"
+          placeholder="outlined"
+          type="password"
+          error={true}
+          warningText="비밀번호 조건"
+        />
+        <Spacing />
+        <CustomButton ><a href={url} target='blank'>카카오 로그인</a></CustomButton>
       </Body>
     </Layout>
   );

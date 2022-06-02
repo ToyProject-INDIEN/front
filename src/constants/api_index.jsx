@@ -1,3 +1,5 @@
+import Layout from "../components/Layout";
+import CustomButton from "../components/common/CustomButton";
 import axios from "axios";
 import { API_URL } from "./index";
 
@@ -7,3 +9,11 @@ export const getData = async (item) => {
 
   return res.data;
 };
+
+export const sendData = async (restUri, params) => {
+  let res = await axios.post({
+    url:`${API_URL}/${restUri}`,
+    header : {'Content-Type': 'application/json'},
+    body: params
+  })
+}
