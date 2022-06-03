@@ -33,8 +33,10 @@ const Home = () => {
         'client_id': key,
         'redirect_uri': redirect,
         'code': _code,
+    }, function(res){
+      console.log(res);
     });
-    console.log('실행');
+    
   }
   if(code){
     sendAllowCode(code);

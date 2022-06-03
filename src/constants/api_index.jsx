@@ -10,10 +10,13 @@ export const getData = async (item) => {
   return res.data;
 };
 
-export const sendData = async (restUri, params) => {
+export const sendData = async (restUri, params, callback) => {
+  
   let res = await axios.post({
     url:`${API_URL}/${restUri}`,
     header : {'Content-Type': 'application/json'},
     body: params
-  })
+  }).then(function(res){
+    callback(res);
+  });
 }
