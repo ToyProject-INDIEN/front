@@ -10,6 +10,7 @@ import { Spacing } from "../styles/commonStyles";
 
 import queryString from 'query-string';
 import { sendData } from '../constants/api_index';
+import axios from "axios";
 
 const Home = () => {
   const [value, setValue] = useState("");
@@ -28,15 +29,27 @@ const Home = () => {
   
   const sendAllowCode = (_code) => {
 
-    sendData('login/ouath', {
+    let res = sendData('login/ouath', {
         'grant_type': 'authorization_code',
         'client_id': key,
         'redirect_uri': redirect,
         'code': _code,
-    }, function(res){
-      console.log(res);
     });
-    
+
+    // 위 코드가 안 될시 임시 대체 테스트용
+    /*
+    axios.post({
+      url:'http://127.0.0.1:본인포트/login/ouath',
+      data: {
+        'grant_type': 'authorization_code',
+        'client_id': key,
+        'redirect_uri': redirect,
+        'code': _code
+      }
+    }).then(function(res){
+      console.log(res);
+    })
+    */
   }
   if(code){
     sendAllowCode(code);
