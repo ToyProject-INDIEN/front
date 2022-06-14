@@ -12,11 +12,6 @@ export const getData = async (item) => {
 
 export const sendData = async (restUri, params) => {
   
-  let res = await axios.post({
-    url:`${API_URL}/${restUri}`,
-    headers : {'Content-Type': 'application/json'},
-    data: params
-  });
-
+  let res = await axios.post(`${API_URL}/${restUri}`,params);
   return res;
 }
