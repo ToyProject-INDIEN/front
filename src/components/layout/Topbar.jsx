@@ -3,6 +3,7 @@ import React, { useEffect, useState, useContext, useRef, useMemo } from "react";
 import { HAEDER_MENU } from "./Menu";
 import { LayoutContext } from "../../context/layoutContext";
 import MobileTopbar from "./MobileTopbar";
+import { useNavigate } from "react-router-dom";
 
 import Logo from "./Logo";
 import { Menu } from "../../styles/layoutStyles";
@@ -12,8 +13,10 @@ import SearchBar from "./SearchBar";
 const Topbar = ({ hearderTitle, headerLOption, headerROption }) => {
   const { matchese } = useContext(LayoutContext);
 
+  const navigate = useNavigate();
+
   const goPages = (url) => {
-    console.log(url);
+    navigate(url);
   };
 
   return (
@@ -53,7 +56,7 @@ const Topbar = ({ hearderTitle, headerLOption, headerROption }) => {
               alignItems="center"
               style={{ height: "100%" }}
             >
-              <Grid onClick={() => goPages("login")}>
+              <Grid onClick={() => goPages("/login")}>
                 <Menu>Login</Menu>
               </Grid>
             </Grid>

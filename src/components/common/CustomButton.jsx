@@ -6,6 +6,7 @@ const CustomButton = ({
   width,
   height,
   fullWidth,
+  bgColor,
   outlined,
   disabled,
   padding,
@@ -38,10 +39,12 @@ const CustomButton = ({
       width={width}
       height={height}
       fullWidth={fullWidth}
+      bgColor={bgColor}
       padding={padding}
       onClick={handleBtnClick}
       outlined={outlined}
       disabled={disabled}
+      
     >
       {children}
     </Button>

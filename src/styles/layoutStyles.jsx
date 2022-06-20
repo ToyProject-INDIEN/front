@@ -246,4 +246,5 @@ export const Body = styled.article`
   ${smLayout} {
     padding: 0;
   }
+  
 `;
